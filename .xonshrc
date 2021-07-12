@@ -20,9 +20,9 @@ import os
 
 def get_conda_env():
     _conda_env = ${...}.get('CONDA_DEFAULT_ENV', '')
-    return ['🐍 '+_conda_env if _conda_env else "", '#a6e22e', 'BLACK']
+    return ['[🐍 '+_conda_env+"]" if _conda_env else "", '#a6e22e', 'BLACK']
 
-def get_path():
+def get_prompt():
     if os.getcwd()  == $HOME:
         icn = ""
     elif os.getcwd() == '/':
@@ -30,11 +30,11 @@ def get_path():
     else:
         icn = "" 
 
-    return [ icn+' {cwd_base} :::', '#a6e22e', 'BLACK']
+    return [ icn+' {cwd_base} :::', '#56edd1', 'BLACK']
 
 $PL_EXTRA_SEC = {"conda_env": get_conda_env, 
                  'git_status': lambda: ['::{gitstatus}', "#ffffff", "#ffffff"],
-                 'prompt_end': get_path,
+                 'prompt_end': get_prompt,
                  'my_cwd': lambda: [os.getcwd(), 'WHITE', 'BLACK'] }
 
 $PL_PROMPT='conda_env>prompt_end'
