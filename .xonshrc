@@ -1,4 +1,4 @@
-# Start from commands:
+#Start from commands:
 #  xonfig web         # Run the configuration tool in the browser to create ~/.xonshrc
 #  xonfig tutorial    # Open the xonsh tutorial in the browser
 #
@@ -10,8 +10,10 @@ $PATH.append('$HOME/miniconda3/bin')
 $PATH.append('$HOME/.pyenv/shims/')
 $PATH.append('/usr/local/bin')
 # XONTRIB
-#xontrib load xlsd
 
+xontrib load readable-traceback
+$READABLE_TRACE_STRIP_PATH_ENV=True
+$READABLE_TRACE_REVERSE=True
 
 ### POWERLINE
 import os
