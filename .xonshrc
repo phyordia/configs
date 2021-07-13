@@ -4,11 +4,34 @@
 #
 #
 #
+#
+
+# STYLE COLORS
+#
+# To see style colors: xonfig colors mystyle
+#
+#
+from pygments.token import Token
+Color = Token.Color
+from xonsh.tools import register_custom_style
+mystyle = { "Token.Literal.Number": "ansiwhite",
+             "Token.Literal.String": "bold ansiyellow",
+             "Token.Name.Variable": "bold ansibrightblue",
+             "Token.Name.Builtin": "ansiwhite"
+             }
+register_custom_style("mystyle", mystyle, base="default")
+$XONSH_COLOR_STYLE="mystyle"
+
 
 # Exanpding $PATH
 $PATH.append('$HOME/miniconda3/bin')
 $PATH.append('$HOME/.pyenv/shims/')
 $PATH.append('/usr/local/bin')
+
+#ALIASES
+aliases['ls'] = 'lsd -l'
+
+
 # XONTRIB
 
 xontrib load readable-traceback
