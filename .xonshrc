@@ -53,7 +53,7 @@ def get_prompt():
     else:
         icn = "" 
 
-    return [ icn+' {cwd_base} :::', '#56edd1', 'BLACK']
+    return [ '{cwd_base} '+icn, '#56edd1', 'BLACK']
 
 $PL_EXTRA_SEC = {"conda_env": get_conda_env, 
                  'git_status': lambda: ['::{gitstatus}', "#ffffff", "#ffffff"],
